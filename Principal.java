@@ -12,6 +12,7 @@ public class Principal {
 class Hora {
 
     int hora, minutos, valor, segundos;
+    String format_hora;
 
     public Hora(int hora, int minutos, int segundos) {
         this.hora = hora;
@@ -73,6 +74,7 @@ class Hora {
     }
 
     public void ver_hora() {
-        System.out.println(this.hora + ":" + this.minutos + ":" + this.segundos);
+        format_hora = String.format("%02d:%02d:%02d",this.hora, this.minutos, this.segundos);
+        System.out.println(format_hora);
     }
 }
