@@ -1,5 +1,3 @@
-package instituto;
-
 import java.util.Collection;
 import java.util.HashSet;
 
@@ -11,7 +9,7 @@ public class Asignatura {
     public Asignatura(String denominacion, int numTrimestres) {
         this.denominacion = denominacion;
         this.numTrimestres = numTrimestres;
-        alumnos = new HashSet<>();
+        alumnos = new HashSet<Alumno>();
     }
 
     public boolean anyadir(Alumno alumno) {

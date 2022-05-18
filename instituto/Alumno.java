@@ -1,5 +1,3 @@
-package instituto;
-
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -7,33 +5,30 @@ import java.util.Map;
 public class Alumno {
     private String nombre;
     private String grupo;
-    private Map<Asignatura, Map<Integer, Double>> asignaturas;
-    private Map<Integer, Double> notas;
+    private Map<Asignatura, Nota> asignaturas;
 
     public Alumno(String nombre, String grupo) {
         this.nombre = nombre;
         this.grupo = grupo;
-        asignaturas = new HashMap<Asignatura, Map<Integer, Double>>();
+        asignaturas = new HashMap<Asignatura, Nota>();
 
     }
 
-    public Alumno matricular(Asignatura asignatura) {
-        asignaturas.put(asignatura, notas);
+    public Alumno matricular(Asignatura asignatura, Nota nota) {
+        asignaturas.put(asignatura, nota);
         asignatura.anyadir(this);
         return this;
     }
 
-    public Alumno set_nota(Asignatura asignatura, Map<Integer, Double> notas) {
-        asignaturas.put(asignatura, notas);
+    public Alumno set_nota(Asignatura asignatura, Nota nota) {
+        asignaturas.put(asignatura, nota);
         return this;
 
     }
 
     public double get_media(Asignatura asignatura) {
-        final Collection<Double> nota;
-        nota = asignaturas.get(asignatura).values();
-        final double tamanyo = nota.size();
-        double sum = 0.0;
+        final Nota nota;
+        nota = asignaturas.get(asignatura);
         for (double valor : nota) {
             sum += valor;
         }
