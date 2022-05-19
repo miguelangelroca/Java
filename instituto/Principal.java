@@ -7,17 +7,17 @@ public class Principal {
         Asignatura ingles = new Asignatura("Inglés", 3);
         Asignatura mates = new Asignatura("Matemáticas", 2);
         Alumno juan = new Alumno("Juan Pérez", "1DAW").matricular(ingles).matricular(mates);
-        juan.set_nota(ingles, new HashMap<Integer, Double>(1, 4.0f))
-                .set_nota(ingles, new HashMap<Integer, Double>(2, 6.0f))
-                .set_nota(ingles, new HashMap<Integer, Double>(3, 8.0f));
+        juan.setNota(ingles, 1, 4.0f)
+                .setNota(ingles, 2, 6.0f)
+                .setNota(ingles, 3, 8.0f);
         Alumno antonio = new Alumno("Antonio García", "1DAW").matricular(mates);
-        antonio.set_nota(mates, new HashMap<Integer, Double>(1, 2.5f));
+        antonio.setNota(mates, 1, 2.5f);
 
         // Tests
 
-        assert juan.get_media(ingles) == 6.0f;
-        assert antonio.get_nota(mates, 2) == 0.0f;
-        assert antonio.get_nota(mates, 1) == antonio.get_media(mates);
-        assert juan.get_aprobada(ingles) == true;
+        assert juan.getMedia(ingles) == 6.0f;
+        assert antonio.getNota(mates, 2) == 0.0f;
+        assert antonio.getNota(mates, 1) == antonio.getMedia(mates);
+        assert juan.getAprobada(ingles) == true;
     }
 }
