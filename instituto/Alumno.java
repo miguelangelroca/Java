@@ -1,6 +1,5 @@
 package instituto;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,26 +16,43 @@ public class Alumno {
     }
 
     public Alumno matricular(Asignatura asignatura) {
-        asignaturas.put(asignatura, new Nota());
+        Nota nota = new Nota(0, 0.0f);
+        asignaturas.put(asignatura, nota);
         asignatura.anyadir(this);
         return this;
     }
 
-    public Alumno setNota(Asignatura asignatura, Integer trimestre, Float nota) {
-        asignaturas.values(asignatura).setNota(trimestre, nota);
+    public Alumno setNota(Asignatura asignatura, Nota nota) {
+        asignaturas.put(asignatura, nota);
         return this;
 
     }
 
     public double getMedia(Asignatura asignatura) {
-        return 0.0;
+        Nota nota = asignaturas.get(asignatura);
+        double sum = 0.0;
+        int tamanyo = 0;
+        for (double valor : nota.iterar()) {
+            sum += valor;
+            tamanyo++;
+        }
+        return sum / tamanyo;
     }
 
     public double getNota(Asignatura asignatura, Integer trimestre) {
-        return asignaturas.values(asignatura).getNota(trimestre);
+        return asignaturas.get(asignatura).getNota(trimestre);
     }
 
     public boolean getAprobada(Asignatura asignatura) {
+        final Nota datos;
+        datos = asignaturas.get(asignatura);
+        for (double valor : datos.iterar()) {
+            if (valor < 5) {
+                return false;
+            } else {
+                return true;
+            }
+        }
         return false;
     }
 }

@@ -1,3 +1,6 @@
+package instituto;
+
+import java.util.Collection;
 import java.util.Map;
 
 public class Nota {
@@ -12,11 +15,12 @@ public class Nota {
         return notas.get(trimestre);
     }
 
-    public float getTodaNota(Alumno alumno) {
-        return 0f;
-    }
-
     public void setNota(int trimestre, float nota) {
         notas.put(trimestre, nota);
     }
+
+    public Collection<Float> iterar() {
+        return notas.values();
+    }
+
 }

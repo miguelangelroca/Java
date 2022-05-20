@@ -1,12 +1,11 @@
 package instituto;
 
-import java.util.Collection;
 import java.util.HashSet;
 
 public class Asignatura {
     private String denominacion;
     private int numTrimestres;
-    private Collection<Alumno> alumnos;
+    private HashSet<Alumno> alumnos;
 
     public Asignatura(String denominacion, int numTrimestres) {
         this.denominacion = denominacion;

@@ -1,3 +1,5 @@
+package hora;
+
 public class Principal {
     public static void main(String[] args) {
         Hora nuevo = new Hora(20, 59, 17);
@@ -74,7 +76,7 @@ class Hora {
     }
 
     public void ver_hora() {
-        format_hora = String.format("%02d:%02d:%02d",this.hora, this.minutos, this.segundos);
+        format_hora = String.format("%02d:%02d:%02d", this.hora, this.minutos, this.segundos);
         System.out.println(format_hora);
     }
 }
