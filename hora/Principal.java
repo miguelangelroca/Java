@@ -8,6 +8,8 @@ public class Principal {
         nuevo.ver_hora();
         nuevo.inc();
         nuevo.ver_hora();
+        nuevo.inc();
+        nuevo.ver_hora();
     }
 }
 
