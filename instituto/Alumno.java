@@ -1,5 +1,6 @@
 package instituto;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,31 +17,29 @@ public class Alumno {
     }
 
     public Alumno matricular(Asignatura asignatura) {
-        Nota nota = new Nota(0, 0.0f);
+        Nota nota = new Nota();
         asignaturas.put(asignatura, nota);
         asignatura.anyadir(this);
         return this;
     }
 
-    public Alumno setNota(Asignatura asignatura, Nota nota) {
-        asignaturas.put(asignatura, nota);
-        return this;
-
-    }
-
-    public double getMedia(Asignatura asignatura) {
-        Nota nota = asignaturas.get(asignatura);
-        double sum = 0.0;
-        int tamanyo = 0;
-        for (double valor : nota.iterar()) {
-            sum += valor;
-            tamanyo++;
-        }
-        return sum / tamanyo;
+    public Collection<Float> getNota(Asignatura asignatura) {
+        return asignaturas.get(asignatura).getNota();
     }
 
     public double getNota(Asignatura asignatura, Integer trimestre) {
         return asignaturas.get(asignatura).getNota(trimestre);
+    }
+
+    public double getMedia(Asignatura asignatura) {
+        Nota nota = asignaturas.get(asignatura);
+        float sum = 0.0f;
+        int tamanyo = 0;
+        for (float valor : nota.iterar()) {
+            sum += valor;
+            tamanyo++;
+        }
+        return sum / tamanyo;
     }
 
     public boolean getAprobada(Asignatura asignatura) {
@@ -54,5 +53,16 @@ public class Alumno {
             }
         }
         return false;
+    }
+
+    public Alumno setNota(Asignatura asignatura, Nota nota) {
+        asignaturas.get(asignatura).setNota(nota);
+        return this;
+
+    }
+
+    @Override
+    public String toString() {
+        return "Nombre: " + nombre + "\nGrupo: " + grupo;
     }
 }
