@@ -1,11 +1,8 @@
-package instituto;
-
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Nota {
-
     private Map<Integer, Float> notas;
 
     public Nota(int trimestre, float nota) {
@@ -16,20 +13,17 @@ public class Nota {
         notas = new HashMap<Integer, Float>();
     }
 
-    public float getNota(int trimestre) {
+    public Float getNota(int trimestre) {
         return notas.get(trimestre);
     }
 
-    public Collection<Float> getNota() {
-        return notas.values();
-    }
+    public void setNota(float nuevaNota, int trimestre) {
+        notas.put(trimestre, nuevaNota);
 
-    public void setNota(Nota nuevaNota) {
-        notas.putAll(nuevaNota.notas);
     }
 
     public Collection<Float> iterar() {
-        return this.notas.values();
+        return notas.values();
     }
 
 }
