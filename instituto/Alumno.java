@@ -37,13 +37,13 @@ public class Alumno {
     public boolean getAprobada(Asignatura asignatura) {
         Nota datos = asignaturas.get(asignatura);
         for (float valor : datos.iterar()) {
-            if (valor < 5) {
-                return false;
+            if (valor >= 5) {
+                continue;
             } else {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     public Alumno setNota(Asignatura asignatura, float nuevaNota, int trimestre) {
