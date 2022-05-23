@@ -5,10 +5,6 @@ import java.util.Map;
 public class Nota {
     private Map<Integer, Float> notas;
 
-    public Nota(int trimestre, float nota) {
-        notas = new HashMap<Integer, Float>(trimestre, nota);
-    }
-
     public Nota() {
         notas = new HashMap<Integer, Float>();
     }
